@@ -16,4 +16,15 @@ This repo has the following folders:
 - SSClust: This folder contains all the R script for SSClust method. Note that this code is adapt from the following paper:  Ma, Ping, et al. "A data-driven clustering method for time course gene expression data." Nucleic Acids Research 34.4 (2006): 1261-1269.  
 
 You can find the processed data in the data_process folder. However, if you want to download original data, please go to http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2365 and the dataSet record is GDS2365.  
-Furthermore, our supplementary figures are in the results folder. 
+Furthermore, our supplementary figures are in the results folder.  
+###Instruction on how to run SSClust
+In order to run the SSClust, first, download and install R for your operating system from: http://cran.us.r-project.org/ Then, open R in the terminal and type in   
+```R
+>chooseCRANmirror()
+>install.packages(c("mvtnorm", "gss")) 
+```
+This will install all the dependencies. Then run SSClust.R as the main script. Note: in order to perform well, you need to specify the correct path to the file in this script.  
+###Instruction on how to run LT-TVR
+In order to run LT-TVR, first, download and install ox programming language from http://www.doornik.com/ox/  
+###Instruaction on how to run DLM
+The example folder contains the test input file. It contains 25 genes from real data with 47 time points. In order to run DLM, first specify the correct path in main.m file in the DLM folder. Then, wait for the figures to pop out. Note that it may take a while for the program to run, and the outputs are predictions. The sampler output is in the output folder in Example folder.  
