@@ -2,11 +2,11 @@ clear;
 kkk=10; % burn-in size
 
 % EDA
-[Ylog,Ynames,time]=xlsread('simulation_10genes.xlsx'); %Y is T x #_genomes i.e. T x 10
+[Ylog,Ynames,time]=xlsread('25toy.xlsx'); %Y is T x #_genomes i.e. T x 10
 [T, q] = size(Ylog);
 T = T-1;
 q = q-1;
-names=Ynames(1,2:q+1);
+names=Ynames(1,2:q+2);
 
 
 
@@ -146,9 +146,6 @@ for i = 1:q
         pause;
     end
 end
-
-
-
 
 
 
