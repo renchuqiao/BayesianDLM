@@ -1,5 +1,8 @@
 # Bayesian Dynamic Linear Model
-This is an implementation of Bayesian Dynamic Linear Model by Chuqiao Ren and Ruilin Zhong at Columbia University  
+This is an implementation of Bayesian Dynamic Linear Model by Chuqiao Ren and Ruilin Zhong at Columbia University
+Final Project for CBMF W4761 Computational Genomics Spring 2016  
+Special thanks to  Dr. Itsik Pe'er and Shuo Yang  
+   
 This repo has the following folders:  
 - data_process: this folder contains all the python scripts that process B.Pseudomallei data and the processed B.Pseudomallei data. 
   - data_process.py: This is the python script that process B.Pseudomallei data  
@@ -14,6 +17,7 @@ This repo has the following folders:
 - LTVAR: This folder contains LT-VAR model. It is implemented in ox programming language. In order to run the files, you have to first install the ox programming language. Ltvar_ex.ox is the main function and it will call LTVAR.ox. Note that this code is adapt from the following paper: Nakajima, Jouchi, and Mike West. "Bayesian analysis of latent threshold dynamic models." Journal of Business & Economic Statistics 31.2 (2013): 151-164.   
 - results: This folder contains all the figures that we referred to in our report. Please refer to the README in this folder for more details.  
 - SSClust: This folder contains all the R script for SSClust method. Note that this code is adapt from the following paper:  Ma, Ping, et al. "A data-driven clustering method for time course gene expression data." Nucleic Acids Research 34.4 (2006): 1261-1269.  
+- Example: This folder contains the sample input file along with the sample output for our implementation of DLM.   
 
 You can find the processed data in the data_process folder. However, if you want to download original data, please go to http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2365 and the dataSet record is GDS2365.  
 Furthermore, our supplementary figures are in the results folder.  
