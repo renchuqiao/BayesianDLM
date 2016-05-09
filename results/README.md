@@ -18,3 +18,19 @@ __Prediction Error__: The figures shows the error between predicted value and th
 
 __Covariance Between Genes__:
 
+###Results for Simulated data:
+We did simulation followed the graphical model. The hyper-parameters are specified in our report. The simulated data contains 10 genes with 47 time points.  
+
+In the simulated folder, it has the following folder:
+- covariance_between_genes  
+- prediction  
+- prediction_error  
+
+The folder contents are the same for simulated data and real data. Please refer above for the description of each folder.
+
+__Prediction__: The figures shows that our model works great for each gene. This validate our model.  
+__Prediction Error__: The figures further indicate that our model performs well.  
+__Covariance between genes__: 
+
+
+
