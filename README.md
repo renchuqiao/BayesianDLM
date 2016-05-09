@@ -6,7 +6,7 @@ There are three folders:
   - processed_data.csv: This csv file contains all genes  
   - processed_data_chromosome_1.csv: This csv file contains all genes from chromosome 1  
   - processed_data_chromosome_2.csv: This csv file contains all genes from chromosome 2  
-- DLM: This folder contains the Matlab implementation of DLM  
+- DLM: This folder contains the Matlab implementation of DLM. main.py is the main script that would call the function ltpdf.m
 - simulation: This folder contains the python script that simulate DLM data  
   - simulation_new.py: This is the python script that simulate data based on graphical model  
   - simulation_10genes.xlsx: this is the simulated data: 10 genes with 47 data points. This is the small input file that can be tested on our DLM code.  
