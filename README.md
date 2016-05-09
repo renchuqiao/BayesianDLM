@@ -31,4 +31,12 @@ This will install all the dependencies. Then run SSClust.R as the main script. N
 ###Instruction on how to run LT-TVR
 In order to run LT-TVR, first, download and install ox programming language from http://www.doornik.com/ox/  
 ###Instruaction on how to run DLM
-The example folder contains the test input file. It contains 25 genes from real data with 47 time points. In order to run DLM, first specify the correct path in main.m file in the DLM folder. Then, wait for the figures to pop out. Note that it may take a while for the program to run, and the outputs are predictions. The sampler output is in the output folder in Example folder.  
+In order to run DLM, you have to first download and install Matlab from https://www.mathworks.com/campaigns/products/ppc/google/matlab-trial-request.html?s_eid=ppc_5852767762&q=download%20matlab&refresh=true  
+
+The input file should be a Excel file containing a matrix of data with rows being time points and columns being genes.  
+
+The example folder contains the test input file. It contains 25 genes from real data with 47 time points.   
+In order to run DLM
+* Specify the correct path in main.m file in the DLM folder.  
+* Wait for the figures to pop out.  
+Note that it may take a while for the program to run, and the outputs are predictions. The sampler output is in the output folder in Example folder.  
