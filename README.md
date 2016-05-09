@@ -34,9 +34,29 @@ In order to run the SSClust, first, download and install R for your operating sy
 >chooseCRANmirror()
 >install.packages(c("mvtnorm", "gss")) 
 ```
-This will install all the dependencies. Then run SSClust.R as the main script. Note: in order to perform well, you need to specify the correct path to the file in this script.  
+This will install all the dependencies. Then run SSClust.R as the main script.   
+
+Note: in order to perform well, you need to specify the correct path to the file in line 28 in the SSClust.R script
+```R
+my.data = read.table("processed_data_chromosome_1_T.txt", header=T, na.strings =" ", sep="\t")
+``` 
+
 ###Instruction on how to run LT-TVR
 In order to run LT-TVR, first, download and install ox programming language from http://www.doornik.com/ox/  
+The main script is Ltvar_ex.ox  
+To run, please open Ltvar_ex.ox and then specify the data path in line 22 
+```
+my = loadmat("usdata.xls");	//data
+``` 
+Then specify the gene name in line 26
+```
+asvar = {"p", "x", "i"};
+```
+And lastly, specify the maximum number of iterations for MCMC in line 45
+```
+Ltvar.MCMC(50000);			//MCMC estimation
+```
+
 ###Instruaction on how to run DLM
 In order to run DLM, you have to first download and install Matlab from https://www.mathworks.com/campaigns/products/ppc/google/matlab-trial-request.html?s_eid=ppc_5852767762&q=download%20matlab&refresh=true  
 
@@ -44,6 +64,11 @@ The input file should be a Excel file containing a matrix of data with rows bein
 
 The example folder contains the test input file. It contains 25 genes from real data with 47 time points.   
 In order to run DLM
-* Specify the correct path in main.m file in the DLM folder.  
-* Wait for the figures to pop out.  
+* Specify the correct path in main.m file in the DLM folder. (line 5 `[Ylog,Ynames,time]=xlsread('25toy.xlsx');`)  
+* Follow the instructions in the console  
+* Output prediction figures  
+* Output prediction error figures  
+* Output correlation figures
 Note that it may take a while for the program to run, and the outputs are predictions. The sampler output is in the output folder in Example folder.  
+
+
