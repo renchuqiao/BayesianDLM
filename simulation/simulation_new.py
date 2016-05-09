@@ -20,9 +20,11 @@ n_gene = 0
 #The following parameters need to be determined by test-and-trials
 #According to Barbara, they used alpha=beta=1 for the uniform on sparsity
 #alpha = 1 beta = 2 is a line of y = -2x + 2
-beta = [1,1]                #parameters of beta[alpha, beta]
-gamma = [1,2,1,2]     #parameters of NG[mu, kappa, alpha, beta]
+# beta = [1,1]                #parameters of beta[alpha, beta]
+gamma = [1,2]     #parameters of NG[mu, kappa, alpha, beta]
 normalWishart = [[2,2],2,[[10,5],[5,10]],3]   #parameters of NW[mu, kappa, Lambda, v]
+
+dataset = []
 
 ##=================================================
 ##===The Following code is adapted from Shuo's code
@@ -64,33 +66,62 @@ def sampler_beta(a, b):
 
 ## ==== Start to simulate
 
+def simulate_v():
+    global gamma
+
+    return sampler_Gamma(gamma[0], gamma[1])
+
 def simulation():
     global n_gene
     global n_time
-    global beta
     global gamma
     global normalWishart
+    global dataset
 
-    print "start to simulate theta_0"
-    theta_0 = []
+    precisionMatrix = sampler_W(normalWishart[3], normalWishart[2])
 
     for sample in range(n_gene):
-        precisionMatrix = sampler_W(normalWishart[3], normalWishart[2])
-        precisionMatrix_scaled = []
-        for i in range(len(precisionMatrix)):
-            temp = []
-            for j in range(len(precisionMatrix[0])):
-                temp.append(precisionMatrix[i][j] / normalWishart[1])
-            precisionMatrix_scaled.append(temp)
-        mu = np.random.multivariate_normal(normalWishart[0], precisionMatrix_scaled)
-        theta_0.append(np.random.multivariate_normal(mu, precisionMatrix))
-    print "finish simulating theta_0"
+        print "start gene ",
+        print sample+1
+        # precisionMatrix_scaled = []
+        # for i in range(len(precisionMatrix)):
+        #     temp = []
+        #     for j in range(len(precisionMatrix[0])):
+        #         temp.append(precisionMatrix[i][j] / normalWishart[1])
+        #     precisionMatrix_scaled.append(temp)
+        mu = np.random.multivariate_normal(normalWishart[0], np.multiply(precisionMatrix, 1/normalWishart[1]))
+        theta_0 = np.random.multivariate_normal(mu, precisionMatrix)
 
-    print "start to simulate "
+        v = simulate_v()
+        p_v = np.multiply(precisionMatrix, v)
 
-    print "start to simulate all time points"
-    print "finish simulating all time points"
+        f = theta_0 + np.random.multivariate_normal([0]*n_gene, p_v)
+        theta_prev = theta_0
+        count = 0
+        while count < 50:
+            theta = np.random.multivariate_normal(theta_prev, precisionMatrix)
+            v = simulate_v()
+            p_v = np.multiply(precisionMatrix, v)
+            y = np.multiply(f, theta) + np.random.multivariate_normal([0]*n_gene, p_v)
+            dataset.append(y)
+            f = y
+            theta_prev = theta
 
+            count += 1
+
+    return
+
+def writeToFile():
+    f = open("./simulated_data.csv", "wb")
+    d = np.array(dataset)
+    f.write("data,gene 1,gene 2,gene 3,gene 4,gene 5,gene 6,gene 7,gene 8,gene 9,gene 10\n")
+    for i in range(n_time):
+        line = "time "+str(i) + ","
+        for j in range(n_gene):
+            line += str(d[i][j]) + ","
+        line = line[:-1] + '\n'
+        f.write(line)
+    f.close()
 
 
 
@@ -148,7 +179,7 @@ if __name__ == '__main__':
 
 
     #initialize sparsity parameter
-    beta = [2, 2]  # parameters of beta[alpha, beta]
+    # beta = [2, 2]  # parameters of beta[alpha, beta]
     gamma = [1, 2]  # parameters of Gamma[alpha, beta]
 
     #DEBUG
@@ -158,6 +189,8 @@ if __name__ == '__main__':
     print "now start simulation..."
 
     simulation()
+
+    writeToFile()
 
 
 
