@@ -28,7 +28,7 @@ This repo has the following folders:
 
 You can find the processed data in the data_process folder. However, if you want to download original data, please go to http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2365 and the dataSet record is GDS2365.  
 Furthermore, our supplementary figures are in the results folder.  
-###Instruction on how to run SSClust
+### Instruction on how to run SSClust
 In order to run the SSClust, first, download and install R for your operating system from: http://cran.us.r-project.org/ Then, open R in the terminal and type in   
 ```R
 >chooseCRANmirror()
@@ -41,7 +41,7 @@ Note: in order to perform well, you need to specify the correct path to the file
 my.data = read.table("processed_data_chromosome_1_T.txt", header=T, na.strings =" ", sep="\t")
 ``` 
 
-###Instruction on how to run LT-TVR
+### Instruction on how to run LT-TVR
 In order to run LT-TVR, first, download and install ox programming language from http://www.doornik.com/ox/  
 The main script is Ltvar_ex.ox  
 To run, please open Ltvar_ex.ox and then specify the data path in line 22 
@@ -57,7 +57,7 @@ And lastly, specify the maximum number of iterations for MCMC in line 45
 Ltvar.MCMC(50000);			//MCMC estimation
 ```
 
-###Instruaction on how to run DLM
+### Instruaction on how to run DLM
 In order to run DLM, you have to first download and install Matlab from https://www.mathworks.com/campaigns/products/ppc/google/matlab-trial-request.html?s_eid=ppc_5852767762&q=download%20matlab&refresh=true  
 
 The input file should be a Excel file containing a matrix of data with rows being time points and columns being genes.  
