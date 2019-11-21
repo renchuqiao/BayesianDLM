@@ -1,6 +1,6 @@
 # Bayesian Dynamic Linear Model
-This is an implementation of Bayesian Dynamic Linear Model by Chuqiao Ren and Ruilin Zhong at Columbia University
-Final Project for CBMF W4761 Computational Genomics Spring 2016  
+__This is an implementation of Bayesian Dynamic Linear Model by Chuqiao Ren and Ruilin Zhong at Columbia University__    
+Final Project for CBMF W4761 Computational Genomics Spring 2016     
 Special thanks to  Dr. Itsik Pe'er and Shuo Yang  
    
 This repo has the following folders:  
