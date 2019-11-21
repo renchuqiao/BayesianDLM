@@ -1,7 +1,7 @@
 # Bayesian Dynamic Linear Model
-__This is an implementation of Bayesian Dynamic Linear Model__ 
-Author: Chuqiao Ren and Ruilin Zhong     
-@Columbia University
+__This is an implementation of Bayesian Dynamic Linear Model__     
+Author: Chuqiao Ren and Ruilin Zhong          
+@Columbia University      
 Final Project for CBMF W4761 Computational Genomics Spring 2016     
 Special thanks to  Dr. Itsik Pe'er and Shuo Yang  
    
